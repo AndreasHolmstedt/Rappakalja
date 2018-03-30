@@ -1,0 +1,855 @@
+body {
+    margin: 0px;
+    background-color:#fffff9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+}
+
+* {
+    font-family: "work sans";
+}
+
+.window {
+    transition: opacity .3s;
+}
+
+button:focus {
+    outline: none;
+}
+
+#banner {
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(to right, #7453B5, #230856);
+    height: 20em;
+    z-index: -1;
+    top: -30px;
+}
+
+#landingPage {
+    margin-left: 10%;
+    margin-right: 10%;
+    color: #efefef;
+    text-align: center;
+    margin-top: 8em;
+    font-family: "work sans";
+}
+
+#landingPage > h1 {
+    text-transform: uppercase;
+    color: #efefe;
+    letter-spacing: .3em;
+}
+
+#landingPage > h2 {
+    margin-bottom: 2em;
+    color: #efefef;
+}
+
+#landingPage > div > div > p {
+    font-size: 1.2em;
+}
+
+#landingPage > div {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+#landingPage > div:first-of-type {
+    border-bottom: 1px solid #C7B7E5;
+    background: linear-gradient(to right, #C7B7E5, #230856);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+#landingPage > div > p {
+    display: inline;
+    font-size: 3em;
+}
+
+
+#landingPage > div > div {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 300px;
+}
+
+#landingPage > div > button {
+    background: linear-gradient(140deg, #0C9123, #007314);
+    color: #efefef;
+    border: 2px solid #efefef;
+    border-radius: 3px;
+    margin-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-bottom: 2em;
+    font-size: 1.4em;
+    font-family: "work sans";
+    font-weight: 700;
+    transition: transform 1s, box-shadow .7s;
+    box-shadow: 5px 5px 10px 0px #707070;
+}
+
+#landingPage > div > button:hover {
+    transform: scale(.95);
+    box-shadow: 2px 2px 4px 0px #404040;
+}
+
+   #landingPage > div > p:nth-of-type(2), #landingPage > div > p:nth-of-type(4) {
+        display: none;
+    }
+    
+    #landingPage > div > p:nth-of-type(1), #landingPage > div > p:nth-of-type(3)
+    {
+        display: inline;
+    }
+
+#landingPage > div > div > h3 {
+    font-size: 3em;
+    margin: 0px;
+}
+
+#loginPage {
+    display: none;
+    font-family: "work sans";
+    text-align: center;
+    background-color: rgba(70,70,70, .5);
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+#loginPage > div {
+    background-color: #fafafa;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20vh;
+}
+
+#loginPage > div > div:first-of-type {
+     background: linear-gradient(to bottom, #C7B7E5, #230856);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 2em;
+}
+
+#loginPage > div > button {
+    position: absolute;
+    top: 20vh;
+    right: 20%;
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    padding-right: .3em;
+    color: #C7B7E5;
+    transition: transform .5s;
+}
+
+#loginPage > div > button:hover {
+    transform: scale(.8);
+}
+
+#loginPage > div > div > h1 {
+    padding-top: .5em;
+}
+
+#loginPage > div > div > h2 {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#loginPage > div > div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+#loginPage > div > div:last-of-type > button {
+    padding: .5em;
+    margin: .5em;
+    width: 240px;
+    background: linear-gradient(120deg, #C7B7E5, #230856);
+    color: #efefef;
+    font-family: "work sans";
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 2px solid #efefef;
+    box-shadow: 5px 5px 10px 0px #707070;
+    transition: transform 1s, box-shadow .7s;
+}
+
+#loginPage > div > div:last-of-type > button:hover {
+    transform: scale(.95);
+    box-shadow: 2px 2px 4px 0px #404040;
+}
+
+
+
+#startScreen {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "work sans";
+    justify-content: space-around;
+    width: 95%;
+    height: 100%;
+}
+
+#startScreen > h1 {
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    color: #6651AA;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#startScreen > h2 {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    margin-top: .5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 0px;
+    color: #6651AA;
+}
+
+
+#startScreen > div {
+    margin-top: .5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+#startScreen > div > #signedInAs {
+    color: #6651AA;
+    font-weight: 300;
+}
+
+#startScreen > div > div > button {
+    color: #6651AA;
+    border: 1px solid #6651AA;
+    background-color: #fafafa;
+}
+
+#startScreen > button {
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin: 0 auto;
+    margin-top: 1em;
+    background-color: #fafafa;
+    border: 1px solid #6651AA;
+    color: #6651AA;
+    font-size: 1.2em;
+}
+
+
+#startScreen > input {
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    color: #674c9a;
+    font-family: "work sans";
+    font-size: 1.3em;
+    border: 1px solid #C7B7E5;
+    text-align: center;
+    margin-top: 3em;
+    background-color: #fafafa;
+}
+
+#startScreen > input::-webkit-input-placeholder{
+    color: #C7B7E5;
+}
+
+#startScreen > input:focus {
+    border: 1px solid #6651AA;
+    outline: none;
+}
+
+#startScreen #nickname {
+     width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    color: #674c9a;
+    font-family: "work sans";
+    font-size: 1.3em;
+    border: 1px solid #C7B7E5;
+    padding-left: 1em;
+    margin-top: 2em;
+}
+
+#startScreen #nickname::-webkit-input-placeholder{
+    color: #C7B7E5;
+}
+
+#colorSelector {
+    width: 3em;
+    height: 3em;
+    flex-direction: row;
+    display: flex;
+    min-width: 400px;
+    margin: 0 auto;
+}
+
+
+#colorSelector > div {
+    display: inline;
+    color: #efefef;
+    height: 40px;
+    border: 1px solid #fafafa;
+    margin: 5px;
+    flex-basis: 40px;
+}
+
+#colorSelector:hover{
+    background-color: transparent;
+}
+
+#color1 {
+    background-color: #90EB53;
+}
+
+#color2 {
+    background-color: #EBE872;
+}
+
+#color3 {
+    background-color: #DE5E59;
+}
+
+#color4 {
+    background-color: #B078DE;
+}
+
+#color5 {
+    background-color: #88E7EB;
+}
+
+#color6 {
+    background-color: #DD73DE;
+}
+
+#color7 {
+    background-color: #F5A369;  
+}
+
+#color8 {
+    background-color: #6A6DF5;
+}
+
+
+@media (max-width: 715px) {
+    
+    #landingPage {
+        margin: 0px;
+    }
+    
+    #banner {
+        height: 13em;
+    }
+    
+    #landingPage > h2 {
+        max-width: 350px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #landingPage > div {
+        margin-left: 10%;
+        margin-right: 10%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #landingPage > div:first-of-type {
+    border-bottom: 1px solid #C7B7E5;
+    background: linear-gradient(to bottom, #C7B7E5, #230856);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    }
+    
+    #landingPage > div > div {
+        flex-basis: 100px;
+        margin: 0px;
+    }
+    
+    #landingPage > div > p {
+            font-size: 3em;
+            margin: 0px;
+    }
+    
+    #landingPage > div > p:nth-of-type(1), #landingPage > div > p:nth-of-type(3) {
+        display: none;
+    }
+    
+    #landingPage > div > p:nth-of-type(2), #landingPage > div > p:nth-of-type(4)
+    {
+        font-size: 2em;
+        margin-bottom: .5em;
+        display: inline;
+    }
+    
+    #loginPage > div {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+    }
+    
+    #loginPage > div > button {
+        right: 5%;
+        top: 5%;
+    }
+}
+
+
+@media (min-width: 715px) {
+    
+    .window {
+        max-width: 800px;
+        margin: 3em;
+        border: 2px solid black;
+        padding: 3em;
+    }
+}
+
+
+#newGameScreen {
+    font-family: "work sans";
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newGameScreen > h1 {
+    margin-bottom: 0px;
+    padding: .5em;
+    color: #6651AA;
+    border: 1px solid #6651AA;
+    border-radius: .5em;
+}
+
+#newGameScreen > h2 {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    margin-top: .5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 0px;
+    color: #6651AA;
+}
+
+#newGameScreen > h3 {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: .5em;
+    color: #6651AA;
+}
+
+#newGameScreen > #joinedPlayers {
+    flex: 1 1 10em;
+    font-weight: 600;
+    color: lightgray;
+}
+
+#newGameScreen > #joinedPlayers > div {
+    font-size: 1em;
+}
+
+#newGameScreen > #joinedPlayers > div > p {
+    display: inline;
+}
+
+
+#newGameScreen > #joinedPlayers > div > img {
+    display: inline;
+    height: 1em;
+    margin-left: 1em;
+}
+
+#newGameScreen > #joinedPlayers > div > div {
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+#newGameScreen > #availableAvatars {
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-flow:wrap;
+    justify-content:center;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 0px;
+}
+
+#newGameScreen > #availableAvatars > img {
+    border: 1px solid #ddddcc;
+    background-color: #eeeedd;
+    border-radius: 10em;
+    padding: .5em;
+    height: 2em;
+    margin: .5em;
+    flex-wrap: wrap;
+    box-shadow: 1px 1px 5px 0px lightgrey;
+}
+
+#newGameScreen > #availableAvatars > #pet1 {
+    
+}
+
+#newGameScreen #startGame {
+    padding: .5em;
+    background-color: transparent;
+    border: 2px solid grey;
+    font-family: "work sans";
+    text-transform: uppercase;
+    font-weight: 600;
+    color: grey;
+}
+
+#newGameScreen #leaveGame {
+    padding: .5em;
+    background-color: transparent;
+    border: 2px solid grey;
+    font-family: "work sans";
+    text-transform: uppercase;
+    font-weight: 600;
+    color: grey;
+}
+
+
+#playScreen {
+    display: none;
+    flex-direction: column;
+    font-family: "work sans";
+}
+
+
+#scoreBoard {
+    margin-top: .5em;
+    font-family: "work sans";
+    font-weight: 600;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    width: 330px;
+}
+
+#scoreBoard > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#scoreBoard > div > div {
+    display: inline-block;
+    flex: 1 2 200px;
+    height: 1.2em;
+    margin: 0px;
+    min-width: 200px;
+    margin-left: .5em;
+    background: linear-gradient(to bottom, #eeeeee 50%, #e8e8e8 50%);
+    border-radius: 8px;
+    border: 1px solid #888888;
+    box-shadow: 1px 1px 2px 0px #aaaaaa;
+}
+
+#scoreBoard > div > div > div {
+    margin-top: .2em;
+    margin-left: .2em;
+    height: .8em;
+    width: 0%;
+    max-width: 100%;
+    transition: width 2s cubic-bezier(1,-0.11,.3,1.02);
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #FFA5A5 50%, #F86565 50%);
+    box-shadow: 1px 1px 1px grey;
+    
+}
+
+
+#scoreBoard > div > p {
+    color: #E7807D;
+    text-align: right;
+    width: 2em;
+    height: 1.5em;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    padding-right: .5em;
+    padding-left: .5em;
+    border-right: 1px solid lightgrey;
+}
+
+
+
+#scoreBoard > div > img {
+    height: 1.3em;
+}
+
+#guessWord {
+    flex: 1 2 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+}
+
+#guessWord > h1 {
+    color: #47799F;
+    margin: 0 auto;
+    margin-top: .5em;
+    transition: opacity .7s;
+}
+
+#guessWord > .timer {
+    display: inline-block;
+    height: 1.2em;
+    margin: 0px;
+    margin-left: 2em;
+    margin-right: 2em;
+    background: linear-gradient(to bottom, #eeeeee 50%, #e8e8e8 50%);
+    border-radius: 8px;
+    border: 1px solid #888888;
+    box-shadow: 1px 1px 2px 0px #aaaaaa;
+    margin-bottom: 1em;
+}
+
+#guessWord > .timer > div {
+    margin-top: .2em;
+    margin-left: .2em;
+    height: .8em;
+    width: 50%;
+    transition: width 2s cubic-bezier(1,-0.11,.3,1.02);
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #FFA5A5 50%, #F86565 50%);
+    box-shadow: 1px 1px 1px grey; 
+}
+
+#guessWord > p {
+    margin: 0 auto;
+    margin-top: 1em;
+    font-weight: 600;
+    color: #A142A1;
+}
+
+#guessWord > textarea {
+    width: 250px;
+    margin: 0 auto;
+    height: 6em;
+    padding: .5em;
+    border-radius: 5px;
+    transition: opacity .7s;
+}
+
+#guessWord > button {
+    margin: 0 auto;
+    width: 200px;
+    height: 2em;
+    border-radius: 5px;
+    background-color: #fafafa;
+    border: 3px solid #80A3BE;
+    font-family: "work sans";
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #80A3BE;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    transition: transform .5s cubic-bezier(.97,.04,.18,1.06);
+}
+
+#guessWord > #waitingForPlayers {
+    margin: 0 auto;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+    background: linear-gradient(to bottom, #FFA5A5 , #F86565 );
+    animation: waiting 4s infinite ease;
+    transition: opacity .7s;
+}
+
+@keyframes waiting {
+    0% {
+        transform: scale(.1) rotate(0deg);
+    }
+    
+    50% {
+        transform: scale(1) rotate(360deg);
+    }
+    
+    100%{
+        transform: scale(.1) rotate(0deg);
+    }
+}
+
+.playersReady {
+    margin: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-flow:wrap;
+    justify-content:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.playersReady > img {
+    height: 2em;
+    padding: .5em;
+    border: 3px solid #51C651;
+    border-radius: 50%;
+    transition: background 1s, transform 1s;
+    transform: rotate(360deg);
+}
+
+.playersReady > img:nth-child(4){
+    border: 3px solid #F86565;
+}
+
+
+#guessDesc {
+    flex: 1 2 400px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+}
+
+#guessDesc > #descHeader {
+    color: #47799F;
+    margin: 0px;
+    padding-top: .5em;
+    padding-left: 1em;
+    padding-right 1em;
+    padding-bottom: .5em;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    transition: transform .7s;
+    text-align: center;
+}
+
+#guessDesc > .descOpt {
+    font-family: "work sans";
+    font-size: 1.3em;
+    padding: .2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
+    border: 3px solid #80A3BE;
+    background-color: #fafafa;
+    text-transform: lowercase;
+    transition: transform .7s;
+}
+
+#guessDesc .descOpt img {
+    height: .9em;
+    padding-left: .5em;
+    margin-left: .5em;
+    margin-top: .2em;
+}
+
+#guessDesc .descOpt img:first-child{
+    border-left: 1px solid #80A3BE
+}
+
+
+#winnerScreen {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #fafafa;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#winnerScreen h2 {
+    background: linear-gradient(to left, #eeFF83, #eeDB2C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex: 2 1 auto
+}
+
+#winnerScreen h3 {
+    color: red;
+    animation: pumping 2s infinite ease;
+}
+
+@keyframes pumping {
+    0%{
+        transform: scale(.8);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(.8);
+    }
+}
+
+
+#winnerScreen img {
+    flex: 4 1 auto;
+    max-height: 8em;
+    animation: rolling 6s infinite cubic-bezier(.59,-0.83,.41,1.89);
+}
+
+@keyframes rolling {
+    0% {
+        transform: scale(.9) rotate(0deg);
+    }
+    
+    50% {
+        transform: scale(1) rotate(360deg);
+    }
+    
+    100%{
+        transform: scale(.9) rotate(0deg);
+    }
+}
+
+#winnerScreen button {
+    margin: 0 auto;
+    width: 300px;
+    flex: 1 1 2em;
+    min-height: 2em;
+    border-radius: 5px;
+    background-color: #fafafa;
+    border: 3px solid #80A3BE;
+    font-family: "work sans";
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #80A3BE;
+    margin-top: 2em;
+    margin-bottom: .5em;
+    transition: transform .5s cubic-bezier(.97,.04,.18,1.06);
+}

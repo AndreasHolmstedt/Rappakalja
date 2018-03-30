@@ -1,0 +1,122 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>Rappakalja</title>
+    <meta charset="utf-8">
+    <link href="index.css" type="text/css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div id="startScreen" class="window">
+        <div>
+            <div id="signedInAs"></div>
+        <div>
+        <button id="signIn">Logga in</button>
+        <button id="signOut">Logga ut</button>
+        </div>
+        </div>
+        <h1>RAPPAKALJA</h1>
+        <h2 id="pleaseSignIn">Logga in via Facebook för att börja spela</h2>
+    
+    <button id="createNewGame">Skapa nytt spelrum</button>
+    <input id="joinGameKey" type="text" maxlength="6" placeholder="Skriv in kod för spelrum"/>
+    <button id="joinGame">Gå med i spelrum</button>
+    </div>
+
+    
+    <div id="newGameScreen" class="window">
+        <h1 id="gameKey">594929</h1>
+        <h2>För att gå med i spelet skriver de andra spelarna in koden ovan.</h2>
+        <h3>Spelare</h3>
+        <div id="joinedPlayers">
+           
+        </div>
+        <h3>Välj din spelpjäs</h3>
+        <div id="availableAvatars">
+            <img src="resources/birdie.svg" class="pets"/>
+            <img src="resources/cat.svg" class="pets" />
+            <img src="resources/chicken.svg" class="pets"/>
+            <img src="resources/dog.svg" class="pets"/>
+            <img src="resources/mouse.svg" class="pets"/>
+            <img src="resources/rabbit.svg" class="pets"/>
+            <img src="resources/turtle.svg" class="pets"/>
+            <img src="resources/elephant.svg" class="pets"/>
+        </div>
+        <button id="startGame">Börja spela!</button>
+        <button id="leaveGame">Lämna spel</button>
+    </div>
+    
+    
+    
+    
+    
+     <div id="playScreen" class="window">
+        <div id="scoreBoard">
+            
+        </div>
+    </div>
+    
+    
+    <div id="winnerScreen" class="window">
+       
+    </div>
+    
+    
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+    var config = {
+        apiKey: "AIzaSyCYrpqTeky8BK7MqLrd9mN01nMvULIX5iE",
+        authDomain: "rappakalja-18766.firebaseapp.com",
+        databaseURL: "https://rappakalja-18766.firebaseio.com",
+        projectId: "rappakalja-18766",
+        storageBucket: "rappakalja-18766.appspot.com",
+        messagingSenderId: "409318242037"
+    };
+
+    if (firebase.apps.length == 0) {
+        firebase.initializeApp(config);
+    }
+
+</script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '213001039442510',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.12'
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+    <script src="js/auth.js"></script>
+<script src="js/createAndJoinGame.js"></script>
+<script src="js/routing.js"></script>
+    <script src="js/play.js"></script>
+
+
+
+
+
+</html>
