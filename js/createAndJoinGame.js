@@ -21,8 +21,10 @@ document.getElementById("createNewGame").addEventListener("click", function () {
     handleNewGameScreen(gameKey);
 
 
-    document.getElementById("startGame").addEventListener("click", function () {
-        console.log("testar att starta");
+    document.getElementById("startGame").onclick = function () {
+
+
+
         db.ref(`currentGameRooms/${gameKey}/`).once("value", function (snapshot) {
 
             let data = snapshot.val()
@@ -37,18 +39,18 @@ document.getElementById("createNewGame").addEventListener("click", function () {
             }
 
             if (temp) {
-                console.log("går in i if temp")
                 let game = {};
                 game.players = data.players;
                 game.active = true;
                 let key = db.ref(`previousGames/`).push(game).getKey();
                 db.ref(`currentGameRooms/${gameKey}/newGame`).set(key);
+                document.getElementById("startGame").onclick = null;
                 startRoundAsHost(key);
                 db.ref(`currentGameRooms/${gameKey}/`).off()
             } else {}
         });
 
-    });
+    };
 
 
 });

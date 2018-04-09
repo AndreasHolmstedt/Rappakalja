@@ -9,12 +9,12 @@ let startRoundAsHost = function (key) {
         drawScoreBoard(key)
     }
 
-    randomWord = (Math.floor(Math.random() * 6) + 1)
+    randomWord = (Math.floor(Math.random() * 25) + 1)
 
 
     db.ref(`words/${randomWord}`).once("value", function (snapshot) {
         let data = snapshot.val()
-
+        console.log(data);
 
         db.ref(`previousGames/${key}/rounds/${round}/word`).set(data);
         drawWord(key, data)
@@ -56,9 +56,9 @@ let startRoundAsJoined = function (key) {
     }
 
     db.ref(`previousGames/${key}/rounds/${round}/word`).on("value", function (snapshot) {
-        
+
         let data = snapshot.val();
-        
+
         if(data){
             drawWord(key, data)
         }
@@ -122,7 +122,7 @@ let drawWord = function (key, data) {
     guessWord.id = "guessWord";
     document.getElementById("playScreen").appendChild(guessWord);
     let h1 = document.createElement("h1")
-   
+
     h1.innerText = Object.keys(data);
     guessWord.appendChild(h1)
 
@@ -145,6 +145,12 @@ let drawWord = function (key, data) {
             textArea.placeholder = "Beskrivningen är för kort.";
             return;
         } else {
+
+          textArea.value = textArea.value.charAt(0).toUpperCase() + textArea.value.slice(1);
+          if(textArea.value.substring(textArea.value.length-1, textArea.value.length) != "."){
+            textArea.value += ".";
+          }
+
             db.ref(`previousGames/${key}/rounds/${round}/descriptions/${userObj.uid}`).set(textArea.value, function (error) {
                 if (error) {
 
@@ -232,29 +238,32 @@ let guessOnDescriptions = function (key) {
                         optionsArray.push(button);
 
                         for (let i in desc) {
+
+
                             let button = document.createElement("button");
                             button.innerText = desc[i];
                             button.classList.add("descOpt");
                             button.id = `desc${i}`
-                            button.onclick = function () {
 
-                                button.style.borderColor = "#51C651";
-                                db.ref(`previousGames/${key}/rounds/${round}/guesses/${userObj.uid}`).set(i)
+                            if(i != userObj.uid){
+                              button.onclick = function () {
 
-                                window.setTimeout(function () {
+                                  button.style.borderColor = "#51C651";
+                                  db.ref(`previousGames/${key}/rounds/${round}/guesses/${userObj.uid}`).set(i)
 
-                                    let buttons = document.getElementsByClassName("descOpt")
+                                  window.setTimeout(function () {
 
-                                    document.getElementById("descHeader").style.transform = "scaleX(0)";
-                                    for (i = 0; i < buttons.length; i++) {
-                                        buttons[i].style.transform = "scaleX(0)";
-                                        buttons[i].onclick = null;
-                                    }
+                                      let buttons = document.getElementsByClassName("descOpt")
 
-                                }, 500);
+                                      document.getElementById("descHeader").style.transform = "scaleX(0)";
+                                      for (i = 0; i < buttons.length; i++) {
+                                          buttons[i].style.transform = "scaleX(0)";
+                                          buttons[i].onclick = null;
+                                      }
 
-                                distributePoints(key, numberOfPlayers);
-
+                                  }, 500);
+                                  distributePoints(key, numberOfPlayers);
+                              }
                             }
                             optionsArray.push(button);
 
@@ -384,24 +393,24 @@ let distributePoints = function (key, numberOfPlayers) {
 let presentWinner = function (winner) {
     winnerScreen = document.getElementById("winnerScreen");
     console.log(Object.keys(winner).length)
-    
+
     while(winnerScreen.firstChild){
         winnerScreen.removeChild(winnerScreen.firstChild)
     }
-    
+
     while(playScreen.children[1]){
         playScreen.removeChild(playScreen.children[1]);
     }
-    
+
     let h2 = document.createElement("h2");
     h2.innerText = "VINNARE";
     winnerScreen.appendChild(h2);
-    
+
     for(i=1; i <= Object.keys(winner).length; i++){
-        
+
         console.log(winner);
         console.log(winner[i].displayName);
-        
+
         let h3 = document.createElement("h3");
         h3.innerText = winner[i].displayName;
         h3.style.color = setColorByAvatar(winner[i].avatar);
@@ -413,15 +422,15 @@ let presentWinner = function (winner) {
     let button = document.createElement("button");
     button.innerText = "GÅ TILL MENYN";
     button.onclick = function () {
-        
+
         openWindow("startScreen");
     }
     winnerScreen.appendChild(button);
     openWindow("winnerScreen");
     round = 1;
-    
-    
-    
-    
-    
+
+
+
+
+
 }

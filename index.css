@@ -106,7 +106,7 @@ button:focus {
    #landingPage > div > p:nth-of-type(2), #landingPage > div > p:nth-of-type(4) {
         display: none;
     }
-    
+
     #landingPage > div > p:nth-of-type(1), #landingPage > div > p:nth-of-type(3)
     {
         display: inline;
@@ -244,8 +244,16 @@ button:focus {
 }
 
 #startScreen > div > div > button {
-    color: #6651AA;
-    border: 1px solid #6651AA;
+    color: #6A6DF5;
+    border: 1px solid #6A6DF5;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+#startScreen > div > div > button:last-child {
+    color: #DE5E59;;
+    border: 1px solid #DE5E59;
+    border-radius: 10px;
     background-color: #fafafa;
 }
 
@@ -256,9 +264,11 @@ button:focus {
     margin: 0 auto;
     margin-top: 1em;
     background-color: #fafafa;
-    border: 1px solid #6651AA;
+    border: 2px solid #6651AA;
+    border-radius: 10px;
     color: #6651AA;
     font-size: 1.2em;
+    font-weight: 500;
 }
 
 
@@ -348,7 +358,7 @@ button:focus {
 }
 
 #color7 {
-    background-color: #F5A369;  
+    background-color: #F5A369;
 }
 
 #color8 {
@@ -357,62 +367,62 @@ button:focus {
 
 
 @media (max-width: 715px) {
-    
+
     #landingPage {
         margin: 0px;
     }
-    
+
     #banner {
         height: 13em;
     }
-    
+
     #landingPage > h2 {
         max-width: 350px;
         display: block;
         margin: 0 auto;
     }
-    
+
     #landingPage > div {
         margin-left: 10%;
         margin-right: 10%;
         flex-direction: column;
         align-items: center;
     }
-    
+
     #landingPage > div:first-of-type {
     border-bottom: 1px solid #C7B7E5;
     background: linear-gradient(to bottom, #C7B7E5, #230856);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     }
-    
+
     #landingPage > div > div {
         flex-basis: 100px;
         margin: 0px;
     }
-    
+
     #landingPage > div > p {
             font-size: 3em;
             margin: 0px;
     }
-    
+
     #landingPage > div > p:nth-of-type(1), #landingPage > div > p:nth-of-type(3) {
         display: none;
     }
-    
+
     #landingPage > div > p:nth-of-type(2), #landingPage > div > p:nth-of-type(4)
     {
         font-size: 2em;
         margin-bottom: .5em;
         display: inline;
     }
-    
+
     #loginPage > div {
         margin-left: 5%;
         margin-right: 5%;
         margin-top: 5%;
     }
-    
+
     #loginPage > div > button {
         right: 5%;
         top: 5%;
@@ -421,7 +431,7 @@ button:focus {
 
 
 @media (min-width: 715px) {
-    
+
     .window {
         max-width: 800px;
         margin: 3em;
@@ -439,6 +449,7 @@ button:focus {
 }
 
 #newGameScreen > h1 {
+    margin: 0 auto;
     margin-bottom: 0px;
     padding: .5em;
     color: #6651AA;
@@ -517,27 +528,31 @@ button:focus {
 }
 
 #newGameScreen > #availableAvatars > #pet1 {
-    
+
 }
 
 #newGameScreen #startGame {
+    margin-top: .5em;
     padding: .5em;
     background-color: transparent;
-    border: 2px solid grey;
+    border: 2px solid #6A6DF5;
+    border-radius: 10px;
     font-family: "work sans";
     text-transform: uppercase;
-    font-weight: 600;
-    color: grey;
+    font-weight: 500;
+    color: #6A6DF5;
 }
 
 #newGameScreen #leaveGame {
+    margin-top: .5em;
     padding: .5em;
     background-color: transparent;
-    border: 2px solid grey;
+    border: 2px solid #DE5E59;
+    border-radius: 10px;
     font-family: "work sans";
     text-transform: uppercase;
-    font-weight: 600;
-    color: grey;
+    font-weight: 500;
+    color: #DE5E59;
 }
 
 
@@ -587,7 +602,7 @@ button:focus {
     border-radius: 8px;
     background: linear-gradient(to bottom, #FFA5A5 50%, #F86565 50%);
     box-shadow: 1px 1px 1px grey;
-    
+
 }
 
 
@@ -646,7 +661,7 @@ button:focus {
     transition: width 2s cubic-bezier(1,-0.11,.3,1.02);
     border-radius: 8px;
     background: linear-gradient(to bottom, #FFA5A5 50%, #F86565 50%);
-    box-shadow: 1px 1px 1px grey; 
+    box-shadow: 1px 1px 1px grey;
 }
 
 #guessWord > p {
@@ -697,11 +712,11 @@ button:focus {
     0% {
         transform: scale(.1) rotate(0deg);
     }
-    
+
     50% {
         transform: scale(1) rotate(360deg);
     }
-    
+
     100%{
         transform: scale(.1) rotate(0deg);
     }
@@ -826,11 +841,11 @@ button:focus {
     0% {
         transform: scale(.9) rotate(0deg);
     }
-    
+
     50% {
         transform: scale(1) rotate(360deg);
     }
-    
+
     100%{
         transform: scale(.9) rotate(0deg);
     }
@@ -841,6 +856,7 @@ button:focus {
     width: 300px;
     flex: 1 1 2em;
     min-height: 2em;
+    max-height: 2em;
     border-radius: 5px;
     background-color: #fafafa;
     border: 3px solid #80A3BE;
