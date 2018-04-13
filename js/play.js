@@ -123,7 +123,7 @@ let drawWord = function (key, data) {
     document.getElementById("playScreen").appendChild(guessWord);
     let h1 = document.createElement("h1")
 
-    h1.innerText = Object.keys(data);
+    h1.innerText = `"${Object.keys(data)}"`;
     guessWord.appendChild(h1)
 
     let textArea = document.createElement("textarea");
@@ -138,15 +138,15 @@ let drawWord = function (key, data) {
     let waitingForPlayersDiv = document.createElement("div");
     waitingForPlayersDiv.id = "waitingForPlayers";
 
+    //let waitingForPlayersImg = document.createElement("img")
+
+
     button.onclick = function () {
 
-        if (textArea.value.length < 10) {
-            textArea.value = "";
-            textArea.placeholder = "Beskrivningen är för kort.";
-            return;
-        } else {
+          while(textArea.value.substring(textArea.value.length-1, textArea.value.length) == " "){
+            textArea.value = textArea.value.substring(0, textArea.value.length-1);
+          }
 
-          textArea.value = textArea.value.charAt(0).toUpperCase() + textArea.value.slice(1);
           if(textArea.value.substring(textArea.value.length-1, textArea.value.length) != "."){
             textArea.value += ".";
           }
@@ -167,7 +167,7 @@ let drawWord = function (key, data) {
                     }, 700);
                 }
             });
-        }
+
 
 
 
@@ -284,6 +284,7 @@ let guessOnDescriptions = function (key) {
 }
 
 let distributePoints = function (key, numberOfPlayers) {
+
 
     db.ref(`previousGames/${key}/rounds/${round}/guesses/`).on("value", function (snapshot) {
         let guessesData = snapshot.val();
