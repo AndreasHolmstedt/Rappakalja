@@ -10,6 +10,7 @@ window.onload = function () {
         if (user) {
             userObj = user;
              document.getElementById("signedInAs").innerText = userObj.displayName;
+             document.getElementById("signedInImg").src = userObj.photoURL;
             document.getElementById("pleaseSignIn").innerText = "Du kan skapa ett nytt spelrum eller gå med i en väns spelrum.";
              document.getElementById("signIn").style.display = "none";
              document.getElementById("signOut").style.display = "inline";

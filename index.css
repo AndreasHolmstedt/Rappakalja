@@ -1,10 +1,30 @@
+:root {
+    --main-red: #F86565;
+    --off-red: #FFA5A5;
+    --main-yellow: #F8DE65;
+    --off-yellow: #FFF0A5;
+    --main-blue: #47799F;
+    --off-blue: #80A3BE;
+    --main-purple: #6651AA;
+    --off-purple: #9788C6;
+    --main-pink: #D75887;
+    --off-pink: #E796B4;
+    --main-magenta: #A142A1;
+    --off-magenta: #BF7CBF;
+    --main-green: #51C651;
+    --off-green: #8EDB8E;
+    --main-orange: #F8B965;
+    --off-orange: #FFD9A5;
+    --main-white: #f8f8f8;
+    --off-white: #f6f6f8;
+}
+
 body {
     margin: 0px;
-    background-color:#fffff9;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fafafa;
+    background-color: var(--main-white);
 }
 
 * {
@@ -35,86 +55,6 @@ button:focus {
     text-align: center;
     margin-top: 8em;
     font-family: "work sans";
-}
-
-#landingPage > h1 {
-    text-transform: uppercase;
-    color: #efefe;
-    letter-spacing: .3em;
-}
-
-#landingPage > h2 {
-    margin-bottom: 2em;
-    color: #efefef;
-}
-
-#landingPage > div > div > p {
-    font-size: 1.2em;
-}
-
-#landingPage > div {
-    margin-top: 2em;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-}
-
-#landingPage > div:first-of-type {
-    border-bottom: 1px solid #C7B7E5;
-    background: linear-gradient(to right, #C7B7E5, #230856);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-}
-
-#landingPage > div > p {
-    display: inline;
-    font-size: 3em;
-}
-
-
-#landingPage > div > div {
-    margin: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-basis: 300px;
-}
-
-#landingPage > div > button {
-    background: linear-gradient(140deg, #0C9123, #007314);
-    color: #efefef;
-    border: 2px solid #efefef;
-    border-radius: 3px;
-    margin-top: 2em;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    margin-bottom: 2em;
-    font-size: 1.4em;
-    font-family: "work sans";
-    font-weight: 700;
-    transition: transform 1s, box-shadow .7s;
-    box-shadow: 5px 5px 10px 0px #707070;
-}
-
-#landingPage > div > button:hover {
-    transform: scale(.95);
-    box-shadow: 2px 2px 4px 0px #404040;
-}
-
-   #landingPage > div > p:nth-of-type(2), #landingPage > div > p:nth-of-type(4) {
-        display: none;
-    }
-
-    #landingPage > div > p:nth-of-type(1), #landingPage > div > p:nth-of-type(3)
-    {
-        display: inline;
-    }
-
-#landingPage > div > div > h3 {
-    font-size: 3em;
-    margin: 0px;
 }
 
 #loginPage {
@@ -206,14 +146,28 @@ button:focus {
     text-align: center;
     font-family: "work sans";
     justify-content: space-around;
-    width: 95%;
+    width: 100%;
     height: 100%;
+}
+
+.wall {
+  height: 800px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: -1000;
+  transform: translateX(-50%) translateY(-50%);
+  transition: opacity 1s;
+}
+
+.zeroOpacity {
+  opacity: 0;
 }
 
 #startScreen > h1 {
     text-transform: uppercase;
     letter-spacing: .3em;
-    color: #6651AA;
+    color: var(--main-purple);
     font-weight: 600;
     margin: 0 auto;
     margin-top: 1em;
@@ -223,38 +177,59 @@ button:focus {
 #startScreen > h2 {
     text-align: center;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 500;
     margin-top: .5em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
     margin-bottom: 0px;
-    color: #6651AA;
+    color: var(--main-purple);
 }
 
 
 #startScreen > div {
-    margin-top: .5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+    align-items: center;
+    background-color: var(--off-white);
+    border-bottom: 1px solid var(--off-purple);
 }
 
-#startScreen > div > #signedInAs {
-    color: #6651AA;
-    font-weight: 300;
+#startScreen > div > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#startScreen > div > div > #signedInAs {
+    color: var(--main-purple);
+    display: inline;
+    font-weight: 500;
+    margin-left: .5em;
+}
+
+#startScreen > div > div > img {
+  display: inline;
+  height: 1.5em;
+  border-radius: 100%;
+  margin-left: .5em
 }
 
 #startScreen > div > div > button {
-    color: #6A6DF5;
-    border: 1px solid #6A6DF5;
+    color: var(--main-blue);
+    border: 1px solid var(--main-blue);
     border-radius: 10px;
-    background-color: #fafafa;
+    margin-right: .5em;
+    background-color: var(--off-white);
 }
 
 #startScreen > div > div > button:last-child {
-    color: #DE5E59;;
-    border: 1px solid #DE5E59;
+    color: var(--main-red);
+    border: 1px solid var(--main-red);
+    margin-right: .5em;
     border-radius: 10px;
-    background-color: #fafafa;
+    background-color: var(--off-white);
 }
 
 #startScreen > button {
@@ -262,13 +237,27 @@ button:focus {
     padding-left: 2em;
     padding-right: 2em;
     margin: 0 auto;
-    margin-top: 1em;
+    margin-bottom: 2em;
     background-color: #fafafa;
-    border: 2px solid #6651AA;
+    border: 2px solid var(--main-purple);
     border-radius: 10px;
-    color: #6651AA;
+    color: var(--main-purple);
     font-size: 1.2em;
     font-weight: 500;
+}
+
+#startScreen > button:first-of-type{
+  margin-top: 1em;
+  color: var(--main-green);
+  background-color: var(--off-white);
+  border-color: var(--main-green);
+}
+
+#startScreen > button:last-of-type{
+  margin-top: 4em;
+  color: var(--off-blue);
+  background-color: var(--off-white);
+  border-color: var(--off-blue);
 }
 
 
@@ -276,13 +265,14 @@ button:focus {
     width: 300px;
     height: 40px;
     margin: 0 auto;
-    color: #674c9a;
+    color: var(--main-purple);
+    margin-bottom: .5em;
     font-family: "work sans";
     font-size: 1.3em;
-    border: 1px solid #C7B7E5;
+    border: 1px solid var(--off-purple);
     text-align: center;
-    margin-top: 3em;
-    background-color: #fafafa;
+
+    background-color: var(--main-white);
 }
 
 #startScreen > input::-webkit-input-placeholder{
@@ -451,6 +441,7 @@ button:focus {
 #newGameScreen > h1 {
     margin: 0 auto;
     margin-bottom: 0px;
+    margin-top: .5em;
     padding: .5em;
     color: #6651AA;
     border: 1px solid #6651AA;
@@ -517,8 +508,8 @@ button:focus {
 }
 
 #newGameScreen > #availableAvatars > img {
-    border: 1px solid #ddddcc;
-    background-color: #eeeedd;
+    border: 1px solid var(--off-white);
+    background-color: var(--main-white);
     border-radius: 10em;
     padding: .5em;
     height: 2em;
@@ -535,24 +526,24 @@ button:focus {
     margin-top: .5em;
     padding: .5em;
     background-color: transparent;
-    border: 2px solid #6A6DF5;
+    border: 2px solid var(--off-green);
     border-radius: 10px;
     font-family: "work sans";
     text-transform: uppercase;
     font-weight: 500;
-    color: #6A6DF5;
+    color: var(--off-green);
 }
 
 #newGameScreen #leaveGame {
     margin-top: .5em;
     padding: .5em;
     background-color: transparent;
-    border: 2px solid #DE5E59;
+    border: 2px solid var(--off-red);
     border-radius: 10px;
     font-family: "work sans";
     text-transform: uppercase;
     font-weight: 500;
-    color: #DE5E59;
+    color: var(--off-red);
 }
 
 
@@ -637,6 +628,7 @@ button:focus {
     color: #47799F;
     margin: 0 auto;
     margin-top: .5em;
+    max-width: 100%;
     transition: opacity .7s;
 }
 
@@ -698,22 +690,52 @@ button:focus {
     transition: transform .5s cubic-bezier(.97,.04,.18,1.06);
 }
 
-#guessWord > #waitingForPlayers {
+#waitingForPlayers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 200px;
     margin: 0 auto;
     display: flex;
-    width: 100%
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
     height: 50%;
-    animation: spin 4s infinite ease;
-    transition: opacity .7s;
+    transition: opacity .7s, transform .7s;
 }
 
 #waitingForPlayers > img {
   flex: 4 1 auto;
-  max-height: 8em;
-  animation: spin 6s infinite cubic-bezier(.59,-0.83,.41,1.89);
+  max-height: 4em;
+  display: block;
+  animation-name: spin;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-@keyframes waiting {
+#waitingForPlayers > p {
+  display: block;
+  text-align: center;
+  animation-name: pumping;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@-moz-keyframes waiting {
     0% {
         transform: scale(.1) rotate(0deg);
     }
@@ -758,6 +780,13 @@ button:focus {
     flex-direction: column;
     align-content: center;
     justify-content: space-around;
+}
+
+#guessDesc > h1 {
+  text-align: center;
+  color: #47799F;
+  margin: 0 auto;
+  transition: transform .7s;
 }
 
 #guessDesc > #descHeader {
@@ -806,7 +835,7 @@ button:focus {
     right: 0px;
     background-color: #fafafa;
     display: none;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
@@ -815,7 +844,8 @@ button:focus {
     background: linear-gradient(to left, #eeFF83, #eeDB2C);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    flex: 2 1 auto
+    font-size: 3em;
+    max-height: 3em;
 }
 
 #winnerScreen h3 {
@@ -842,16 +872,7 @@ button:focus {
     animation: spin 6s infinite cubic-bezier(.59,-0.83,.41,1.89);
 }
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
 
-    to {
-        transform: rotate(360deg);
-    }
-
-}
 
 #winnerScreen button {
     margin: 0 auto;

@@ -4,6 +4,8 @@ let db = firebase.database();
 //CREATE NEW GAME
 document.getElementById("createNewGame").addEventListener("click", function () {
 
+    document.getElementById("noBlur").classList.add("zeroOpacity");
+
     let gameKey = createGameKey();
 
     let availableAvatars = ["birdie", "cat", "dog", "elephant", "mouse", "rabbit", "turtle", "chicken"];
@@ -35,6 +37,7 @@ document.getElementById("createNewGame").addEventListener("click", function () {
                     temp = false;
                     break;
                 }
+
                 temp = true;
             }
 
@@ -59,6 +62,7 @@ document.getElementById("createNewGame").addEventListener("click", function () {
 document.getElementById("joinGame").addEventListener("click", function () {
 
 
+
     let gameKey = document.getElementById("joinGameKey").value
     db.ref(`currentGameRooms/`).once("value", function (snapshot) {
         data = snapshot.val()
@@ -80,7 +84,7 @@ document.getElementById("joinGame").addEventListener("click", function () {
 
         if (gameFound) {
             openWindow("newGameScreen");
-
+            document.getElementById("noBlur").classList.add("zeroOpacity");
             document.getElementById("gameKey").innerHTML = gameKey;
 
             handleNewGameScreen(gameKey);
@@ -141,6 +145,11 @@ let handleNewGameScreen = function (gameKey) {
         let data = snapshot.val()
 
         if (data.host != userObj.uid) {
+          document.getElementById("startGame").style.opacity = .3;
+          document.getElementById("startGame").onclick = function(){
+            console.log("någon annan startade spelet");
+          }
+
             if (data.newGame) {
                 db.ref(`currentGameRooms/${gameKey}/`).off();
                 if (!alreadyJoined) {
@@ -189,6 +198,10 @@ let handleNewGameScreen = function (gameKey) {
 
         for (let i in data.players) {
 
+            if(i == userObj.uid){
+                userObj.currentAvatar = data.players[i].avatar;
+              }
+
             let playerDiv = document.createElement("div");
             let playerName = document.createElement("p");
             playerName.innerText = data.players[i].displayName;
@@ -215,13 +228,22 @@ let handleNewGameScreen = function (gameKey) {
 
     });
 
+    document.getElementById("leaveGame").addEventListener("click", function(){
+      db.ref(`currentGameRooms/${gameKey}/players/${userObj.uid}`).remove();
+      db.ref(`currentGameRooms/${gameKey}/`).off();
+      openWindow("startScreen");
+
+      document.getElementById("noBlur").classList.remove("zeroOpacity");
+
+    });
+
 }
 
 let setColorByAvatar = function (avatar) {
 
     switch (avatar) {
         case "birdie":
-            return "#E7807D"
+            return "#F86565"
             break;
         case "cat":
             return "#F8DE65"

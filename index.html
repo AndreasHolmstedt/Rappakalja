@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <link href="index.css" type="text/css" rel="stylesheet">
 
-    <meta 
-     name='viewport' 
+    <meta
+     name='viewport'
      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet">
 
@@ -15,9 +15,21 @@
 </head>
 
 <body>
+
+    <img src="resources/backgroundBlur.jpg" class="wall" id="blur"/>
+    <img src="resources/backgroundNoBlur.jpg" class="wall" id="noBlur" />
+    <div id="landingPage" class="window">
+
+
+
+    </div>
+
     <div id="startScreen" class="window">
         <div>
+          <div>
+            <img id="signedInImg"src="" />
             <div id="signedInAs"></div>
+          </div>
         <div>
         <button id="signIn">Logga in</button>
         <button id="signOut">Logga ut</button>
@@ -25,19 +37,20 @@
         </div>
         <h1>RAPPAKALJA</h1>
         <h2 id="pleaseSignIn">Logga in via Facebook för att börja spela</h2>
-    
+
     <button id="createNewGame">Skapa nytt spelrum</button>
     <input id="joinGameKey" type="text" maxlength="6" placeholder="Skriv in kod för spelrum"/>
     <button id="joinGame">Gå med i spelrum</button>
+    <button>Läs spelregler</button>
     </div>
 
-    
+
     <div id="newGameScreen" class="window">
-        <h1 id="gameKey">594929</h1>
+        <h1 id="gameKey"></h1>
         <h2>För att gå med i spelet skriver de andra spelarna in koden ovan.</h2>
         <h3>Spelare</h3>
         <div id="joinedPlayers">
-           
+
         </div>
         <h3>Välj din spelpjäs</h3>
         <div id="availableAvatars">
@@ -53,23 +66,23 @@
         <button id="startGame">Börja spela!</button>
         <button id="leaveGame">Lämna spel</button>
     </div>
-    
-    
-    
-    
-    
+
+
+
+
+
      <div id="playScreen" class="window">
         <div id="scoreBoard">
-            
+
         </div>
     </div>
-    
-    
+
+
     <div id="winnerScreen" class="window">
-       
+
     </div>
-    
-    
+
+
 
 </body>
 

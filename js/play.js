@@ -50,6 +50,8 @@ let startRoundAsHost = function (key) {
 let startRoundAsJoined = function (key) {
     isHost = false;
 
+
+
     if (round == 1) {
         openWindow("playScreen");
         drawScoreBoard(key)
@@ -138,7 +140,15 @@ let drawWord = function (key, data) {
     let waitingForPlayersDiv = document.createElement("div");
     waitingForPlayersDiv.id = "waitingForPlayers";
 
-    //let waitingForPlayersImg = document.createElement("img")
+    let waitingForPlayersImg = document.createElement("img");
+    waitingForPlayersImg.src = `/resources/${userObj.currentAvatar}.svg`;
+
+    let waitingForPlayersP = document.createElement("p");
+    waitingForPlayersP.innerText = "Väntar på spelare..";
+    waitingForPlayersP.style.color = setColorByAvatar(userObj.currentAvatar);
+
+    waitingForPlayersDiv.appendChild(waitingForPlayersImg);
+    waitingForPlayersDiv.appendChild(waitingForPlayersP);
 
 
     button.onclick = function () {
@@ -155,7 +165,7 @@ let drawWord = function (key, data) {
                 if (error) {
 
                 } else {
-                    button.style.transform = "scalex(0)";
+                    button.style.transform = "scaleX(0)";
                     h1.style.opacity = 0;
                     textArea.style.opacity = 0;
                     window.setTimeout(function () {
@@ -204,12 +214,14 @@ let guessOnDescriptions = function (key) {
 
                     document.getElementById("playScreen").appendChild(guessDesc);
 
-
                     let optionsArray = []
 
                     db.ref(`previousGames/${key}/rounds/${round}/word`).once("value", function (snapshot) {
                         let correctWord = snapshot.val()
-
+                        let h1 = document.createElement("h1");
+                        h1.innerText = `"${Object.keys(correctWord)}"`;
+                        h1.id = "correctWord";
+                        guessDesc.appendChild(h1);
 
                         let button = document.createElement("button");
                         button.innerText = correctWord[Object.keys(correctWord)[0]];
@@ -217,6 +229,7 @@ let guessOnDescriptions = function (key) {
                         button.id = `desccorrectWord`
 
                         button.onclick = function () {
+                            button.onclick = null;
                             button.style.borderColor = "#51C651";
                             db.ref(`previousGames/${key}/rounds/${round}/guesses/${userObj.uid}`).set("correctWord")
 
@@ -224,6 +237,7 @@ let guessOnDescriptions = function (key) {
 
                                 let buttons = document.getElementsByClassName("descOpt")
                                 document.getElementById("descHeader").style.transform = "scaleX(0)";
+                                document.getElementById("correctWord").style.transform = "scaleX(0)";
                                 for (i = 0; i < buttons.length; i++) {
                                     buttons[i].style.transform = "scaleX(0)";
                                     buttons[i].onclick = null;
@@ -238,7 +252,6 @@ let guessOnDescriptions = function (key) {
                         optionsArray.push(button);
 
                         for (let i in desc) {
-
 
                             let button = document.createElement("button");
                             button.innerText = desc[i];
@@ -258,6 +271,7 @@ let guessOnDescriptions = function (key) {
                                       document.getElementById("descHeader").style.transform = "scaleX(0)";
                                       for (i = 0; i < buttons.length; i++) {
                                           buttons[i].style.transform = "scaleX(0)";
+                                          document.getElementById("correctWord").style.transform = "scaleX(0)";
                                           buttons[i].onclick = null;
                                       }
 
@@ -285,11 +299,36 @@ let guessOnDescriptions = function (key) {
 
 let distributePoints = function (key, numberOfPlayers) {
 
+  let waitingForPlayersDiv = document.createElement("div");
+  waitingForPlayersDiv.id = "waitingForPlayers";
+
+  waitingForPlayersDiv.style.opacity = "0";
+  let waitingForPlayersImg = document.createElement("img");
+  waitingForPlayersImg.src = `/resources/${userObj.currentAvatar}.svg`;
+
+  let waitingForPlayersP = document.createElement("p");
+  waitingForPlayersP.innerText = "Väntar på spelare..";
+  waitingForPlayersP.style.color = setColorByAvatar(userObj.currentAvatar);
+
+  waitingForPlayersDiv.appendChild(waitingForPlayersImg);
+  waitingForPlayersDiv.appendChild(waitingForPlayersP);
+
+  document.getElementById("guessDesc").appendChild(waitingForPlayersDiv);
+
+  window.setTimeout(function(){
+
+    document.getElementById("waitingForPlayers").style.opacity = "1";
+
+  }, 1000);
+
+
 
     db.ref(`previousGames/${key}/rounds/${round}/guesses/`).on("value", function (snapshot) {
         let guessesData = snapshot.val();
 
         if (Object.keys(guessesData).length == numberOfPlayers) {
+
+            document.getElementById("waitingForPlayers").style.transform = "scaleX(0)";
 
 
             if (isHost) {
@@ -317,6 +356,7 @@ let distributePoints = function (key, numberOfPlayers) {
                     }
                 }
             }
+
             db.ref(`previousGames/${key}/players`).on("value", function (snapshot) {
                 let data = snapshot.val()
                 let winner = {};
@@ -341,7 +381,6 @@ let distributePoints = function (key, numberOfPlayers) {
 
                 let data = snapshot.val()
                 let guessDesc = document.getElementById("guessDesc")
-
                 let buttons = document.getElementsByClassName("descOpt");
 
                 window.setTimeout(function () {
@@ -349,11 +388,20 @@ let distributePoints = function (key, numberOfPlayers) {
                     document.getElementById("descHeader").style.transform = "scaleX(1)";
                     for (i = 0; i < buttons.length; i++) {
                         buttons[i].style.transform = "scaleX(1)";
+                        document.getElementById("correctWord").style.transform = "scaleX(1)";
                         if (buttons[i].id == "desccorrectWord") {
-
+                            buttons[i]. innerHTML = `Rätt svar - "${buttons[i].innerHTML}"`;
                             buttons[i].style.backgroundColor = "#C0FFC4";
                             buttons[i].style.borderColor = "#80A3BE";
                         } else {
+                            console.log("data.players", data.players)
+                            for(let j in data.players){
+                              console.log("data.players[j]", data.players[j]);
+                              console.log("j", j);
+                              if(buttons[i].id.substring(4, buttons[i].id.length) == j){
+                                buttons[i].innerHTML = `${data.players[j].displayName.substring(0, data.players[j].displayName.indexOf(" "))} - "${buttons[i].innerHTML}"`;
+                              }
+                            }
 
                             buttons[i].style.borderColor = setColorByAvatar(data.players[buttons[i].id.substring(4, buttons[i].id.length)].avatar)
                             //sätt så att avataren kommer upp på det alternativ man valt.
@@ -385,7 +433,7 @@ let distributePoints = function (key, numberOfPlayers) {
                 } else {
                     startRoundAsJoined(key);
                 }
-            }, 5000)
+            }, 15000)
 
         }
     })
