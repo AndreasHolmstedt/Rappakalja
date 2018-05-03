@@ -151,7 +151,7 @@ button:focus {
 }
 
 .wall {
-  height: 800px;
+  height: 1200px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -240,7 +240,7 @@ button:focus {
     margin-bottom: 2em;
     margin-left: 1em;
     margin-right: 1em;
-    background-color: #fafafa;
+    background-color: var(--off-white);
     border: 2px solid var(--main-purple);
     border-radius: 10px;
     color: var(--main-purple);
@@ -426,9 +426,10 @@ button:focus {
 
     .window {
         max-width: 800px;
-        margin: 3em;
-        border: 2px solid black;
-        padding: 3em;
+        margin-top: 6em;
+        border: 2px solid var(--off-purple);
+        padding: 0px;
+        padding-top: 0px;
     }
 }
 
