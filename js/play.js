@@ -141,7 +141,7 @@ let drawWord = function (key, data) {
     waitingForPlayersDiv.id = "waitingForPlayers";
 
     let waitingForPlayersImg = document.createElement("img");
-    waitingForPlayersImg.src = `/resources/${userObj.currentAvatar}.svg`;
+    waitingForPlayersImg.src = `resources/${userObj.currentAvatar}.svg`;
 
     let waitingForPlayersP = document.createElement("p");
     waitingForPlayersP.innerText = "Väntar på spelare..";
@@ -304,7 +304,7 @@ let distributePoints = function (key, numberOfPlayers) {
 
   waitingForPlayersDiv.style.opacity = "0";
   let waitingForPlayersImg = document.createElement("img");
-  waitingForPlayersImg.src = `/resources/${userObj.currentAvatar}.svg`;
+  waitingForPlayersImg.src = `resources/${userObj.currentAvatar}.svg`;
 
   let waitingForPlayersP = document.createElement("p");
   waitingForPlayersP.innerText = "Väntar på spelare..";

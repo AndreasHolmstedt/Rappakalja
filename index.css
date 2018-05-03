@@ -717,7 +717,7 @@ button:focus {
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
 }
 
 #waitingForPlayers > img:focus{
@@ -822,6 +822,8 @@ button:focus {
     background-color: #fafafa;
     text-transform: lowercase;
     transition: transform .7s;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 #guessDesc .descOpt img {
